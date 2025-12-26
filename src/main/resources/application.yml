@@ -1,0 +1,10 @@
+server:
+  port: 8080
+  error:
+    include-exception: false
+    include-stacktrace: never
+    whitelabel.enabled: false
+  shutdown: graceful
+spring:
+  profiles:
+    active: local

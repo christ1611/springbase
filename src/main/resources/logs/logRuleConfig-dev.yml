@@ -1,0 +1,30 @@
+log:
+  appender:
+    console: true
+    file: false
+    fileSift: true
+    jsonLayout: false
+    filter: false
+    cache: false
+  files:
+    absolutePath: /los/logs
+    rootUploadPath: C:/temp/
+    maxSize: 500mb
+    maxHistory: 1
+  level:
+    root: INFO
+    cls:
+      - org.springframework
+      - org.ot.autoconfigure
+      - org.springframework.cloud.task
+    springbase:
+      com.springbase: DEBUG
+      org.hibernate.SQL: DEBUG
+      com.springbase.logback: DEBUG
+      org.springframework.transaction: DEBUG
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+      org.hibernate.engine.jdbc.spi.SqlStatementLogger: DEBUG
+      org.hibernate.orm.jdbc.bind: TRACE
+  #      com.zaxxer.hikari: DEBUG
+  #      org.springframework.boot.autoconfigure: DEBUG
+  daemonIp: 127.0.0.1

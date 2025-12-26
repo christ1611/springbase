@@ -1,0 +1,77 @@
+spring:
+  application:
+    name: GlobalHana
+    jmx:
+    enabled: false
+  main:
+    lazy-initialization: false
+  task:
+    scheduling:
+      enabled: true
+  config:
+    import:
+#        - "optional:configserver:"
+        - classpath:logs/logRuleConfig-local.yml
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  messages:
+    basename: i18n/exception
+    fallback-to-system-locale: true
+    encoding: UTF-8
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1524/INOBIS
+    username: coreadm
+    password: tirmffhqjf1!
+    type: oracle.ucp.jdbc.PoolDataSource
+    oracleucp:
+      connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
+      sql-for-validate-connection: select 1 from dual
+      connection-pool-name: UcpPool
+      initial-pool-size: 5
+      min-pool-size: 5
+      max-pool-size: 10
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+  jpa:
+    show_sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: none  # 없으면 만들고 있으면 그대로 사용
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+        show_sql: true                #하이버네이트가 실행하는 모든 SQL문을 콘솔로 출력해 준다.
+        format_sql: true              #콘솔에 출력되는 JPA 실행 쿼리를 가독성있게 표현한다.
+        use_sql_comments: true        #디버깅이 용이하도록 SQL문 이외에 추가적인 정보를 출력해 준다.
+        jdbc:
+          fetch_size: 250
+  sleuth:
+    enabled: true
+
+
+# Logging Configuration
+logging:
+  level:
+    root: info
+    com.springbase: debug
+    org:
+      apache:
+        kafka:
+          clients:
+            admin: error
+      springframework: error
+    org.hibernate.SQL: DEBUG                       # logs SQL statements
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE   # logs bind parameter values
+
+biz:
+  appName: LOS
+
+minio:
+  enable: true
+  bucketName: logs
+  minioUrl: http://localhost:9000
+  accesskey: global
+  secretkey: global
