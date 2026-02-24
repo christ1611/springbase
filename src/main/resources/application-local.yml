@@ -1,6 +1,6 @@
 spring:
   application:
-    name: GlobalHana
+    name: springbase
     jmx:
     enabled: false
   main:
@@ -19,9 +19,9 @@ spring:
     fallback-to-system-locale: true
     encoding: UTF-8
   datasource:
-    url: jdbc:oracle:thin:@localhost:1524/INOBIS
-    username: coreadm
-    password: tirmffhqjf1!
+    url: jdbc:oracle:thin:@localhost:1524
+    username: admin
+    password: admin
     type: oracle.ucp.jdbc.PoolDataSource
     oracleucp:
       connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
@@ -39,13 +39,13 @@ spring:
     show_sql: true
     open-in-view: true
     hibernate:
-      ddl-auto: none  # 없으면 만들고 있으면 그대로 사용
+      ddl-auto: none  
     properties:
       hibernate:
         dialect: org.hibernate.dialect.OracleDialect
-        show_sql: true                #하이버네이트가 실행하는 모든 SQL문을 콘솔로 출력해 준다.
-        format_sql: true              #콘솔에 출력되는 JPA 실행 쿼리를 가독성있게 표현한다.
-        use_sql_comments: true        #디버깅이 용이하도록 SQL문 이외에 추가적인 정보를 출력해 준다.
+        show_sql: true                
+        format_sql: true              
+        use_sql_comments: true       
         jdbc:
           fetch_size: 250
   sleuth:
