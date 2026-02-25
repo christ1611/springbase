@@ -1,16 +1,5 @@
 package com.springbase.core.common.define;
 
-/**
- * packageName : com.oneqoncore.define
- * fileName : EnumDefine
- * author : nayoseph
- * date : 2024-08-26
- * description :
- * ===========================================================
- * DATE           AUTHOR       NOTE
- * -----------------------------------------------------------
- * 2024-08-26     nayoseph      New
- */
 
 public class EnumDefine
 {
